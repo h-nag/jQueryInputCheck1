@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>jQuery チェック集</title>
+  <meta charset="UTF-8" />
+  <script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    // 空文字チェック
+    $("#chk1").change(function() {
+      if($("input").val() == "") {
+        $("p").html('空文字です');
+        $("p").css('color','red');
+      } else {
+        $("p").html('OK');
+        $("p").css('color','green');
+      }
+    })
+    // 全角チェック
+    $("#chk2").change(function(){
+      if(!$("input").val().match(/^[\u3040-\u30ff]+$/)) {
+        $("p").html('全角文字のみです');
+        $("p").css('color','red');
+      } else {
+        $("p").html('OK');
+        $("p").css('color','green');
+      }
+    })
+    // 番号チェック
+    $("#chk3").change(function(){
+      if(!$("input").val().match(/^\d+$/)) {
+        $("p").html('数字のみです');
+        $("p").css('color','red');
+      } else {
+        $("p").html('OK');
+        $("p").css('color','green');
+      }
+    })
+    // 番号チェック
+    $("#chk4").change(function(){
+        if(!$("input").val().match(/^[a-zA-Z]+$/)) {
+          $("p").html('英字のみです');
+          $("p").css('color','red');
+        } else {
+          $("p").html('OK');
+          $("p").css('color','green');
+        }
+    })
+    });
+  </script>
+</head>
+<body>
+ <p></p>
+ <label>入力チェック</label>
+ <input type="text" name="chkinput" size="30" maxlength="20">
+ <input type="radio" name="chk_grp" id="chk1">空白チェック
+ <input type="radio" name="chk_grp" id="chk2">全角チェック
+ <input type="radio" name="chk_grp" id="chk3">番号チェック
+ <input type="radio" name="chk_grp" id="chk4">英字チェック
+
+</body>
+
+</html>
